@@ -23,14 +23,14 @@ namespace KT.Traversal.Business.Concrete
             _repository.Insert(entity);
         }
 
-        public void TGetById(int id)
+        public About TGetById(int id)
         {
-            _repository.GetById(id);
+            return _repository.GetById(id);
         }
 
-        public void TGetList()
+        public List<About> TGetList()
         {
-            _repository.GetList();
+            return _repository.GetList();
         }
 
         public void TDelete(About entity)

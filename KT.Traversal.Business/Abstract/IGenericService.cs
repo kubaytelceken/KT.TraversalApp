@@ -11,8 +11,8 @@ namespace KT.Traversal.Business.Abstract
         void TAdd(T entity);
         void TDelete(T entity);
         void TUpdate(T entity);
-        void TGetList();
-        void TGetById(int id);
+        List<T> TGetList();
+        T TGetById(int id);
 
 
     }
