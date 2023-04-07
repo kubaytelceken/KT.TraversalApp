@@ -4,6 +4,7 @@ using KT.Traversal.Entity.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,6 +17,11 @@ namespace KT.Traversal.Business.Concrete
         public FeatureManager(IFeatureRepository featureRepository)
         {
             this.featureRepository = featureRepository;
+        }
+
+        public List<Feature> GetListByFilter(Expression<Func<Feature, bool>> filter)
+        {
+            return featureRepository.GetListByFilter(filter);
         }
 
         public void TAdd(Feature entity)

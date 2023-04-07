@@ -4,6 +4,7 @@ using KT.Traversal.Entity.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,6 +17,11 @@ namespace KT.Traversal.Business.Concrete
         public TestimonialManager(ITestimonialRepository testimonialRepository)
         {
             this.testimonialRepository = testimonialRepository;
+        }
+
+        public List<Testimonial> GetListByFilter(Expression<Func<Testimonial, bool>> filter)
+        {
+            return testimonialRepository.GetListByFilter(filter);
         }
 
         public void TAdd(Testimonial entity)

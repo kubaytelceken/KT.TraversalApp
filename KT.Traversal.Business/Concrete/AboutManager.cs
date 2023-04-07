@@ -4,6 +4,7 @@ using KT.Traversal.Entity.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -41,6 +42,11 @@ namespace KT.Traversal.Business.Concrete
         public void TUpdate(About entity)
         {
            _repository.Update(entity);
+        }
+
+        public List<About> GetListByFilter(Expression<Func<About, bool>> filter)
+        {
+            return _repository.GetListByFilter(filter);
         }
     }
 }

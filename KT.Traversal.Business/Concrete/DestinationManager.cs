@@ -4,6 +4,7 @@ using KT.Traversal.Entity.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,6 +17,11 @@ namespace KT.Traversal.Business.Concrete
         public DestinationManager(IDestinationRepository destinationRepository)
         {
             this.destinationRepository = destinationRepository;
+        }
+
+        public List<Destination> GetListByFilter(Expression<Func<Destination, bool>> filter)
+        {
+            return destinationRepository.GetListByFilter(filter);
         }
 
         public void TAdd(Destination entity)
