@@ -16,12 +16,14 @@ namespace KT.TraversalApp.Controllers
         }
 
         [HttpPost]
-        public PartialViewResult AddComment(Comment model)
+        public IActionResult AddComment(Comment model)
         {
             model.CommentDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
             model.CommentState = true;
+            model.DestinationId = 1;
             commentManager.TAdd(model);
-            return PartialView();
+
+            return RedirectToAction("Index","Destination");
         }
     }
 }
