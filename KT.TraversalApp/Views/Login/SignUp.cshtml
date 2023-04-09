@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using KT.TraversalApp.Models;
+@model UserRegisterViewModel
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -23,31 +25,41 @@
 				<h3>New Account?</h3>
 				<div class="form-holder">
 					<span class="lnr lnr-user"></span>
-					<input type="text" name="Name" class="form-control" placeholder="Name">
+					<input type="text" asp-for="Name" class="form-control" placeholder="Name">
+					<span asp-validation-for="Name" class="text-danger"></span>
 				</div>
 				<div class="form-holder">
 					<span class="lnr lnr-user"></span>
-					<input type="text" name="Surname" class="form-control" placeholder="Surname">
+					<input type="text" asp-for="Surname" class="form-control" placeholder="Surname">
+					<span asp-validation-for="Surname" class="text-danger"></span>
 				</div>
 					<div class="form-holder">
 					<span class="lnr lnr-user"></span>
-					<input type="text" name="Username" class="form-control" placeholder="Username">
+					<input type="text" asp-for="Username" class="form-control" placeholder="Username">
+					<span asp-validation-for="Username" class="text-danger"></span>
 				</div>
 				<div class="form-holder">
 					<span class="lnr lnr-envelope"></span>
-					<input type="text" name="Mail" class="form-control" placeholder="Mail">
+					<input type="text" asp-for="Mail" class="form-control" placeholder="Mail">
+						<span asp-validation-for="Mail" class="text-danger"></span>
 				</div>
 					<div class="form-holder">
 					<span class="lnr lnr-phone-handset"></span>
-					<input type="text" name="PhoneNumber" class="form-control" placeholder="Phone Number">
+					<input type="text" asp-for="PhoneNumber" class="form-control" placeholder="Phone Number">
+					<span asp-validation-for="PhoneNumber" class="text-danger"></span>
 				</div>
 				<div class="form-holder">
 					<span class="lnr lnr-lock"></span>
-					<input type="password" name="Password" class="form-control" placeholder="Password">
+					<input type="password" asp-for="Password" class="form-control" placeholder="Password">
+						<span asp-validation-for="Password" class="text-danger"></span>
 				</div>
 				<div class="form-holder">
 					<span class="lnr lnr-lock"></span>
-					<input type="password" name="ConfirmPassword" class="form-control" placeholder="Confirm Password">
+					<input type="password" asp-for="ConfirmPassword" class="form-control" placeholder="Confirm Password">
+					<span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+				</div>
+				<div class="text-danger" asp-validation-summary="ModelOnly">
+
 				</div>
 				<button>
 					<span>Register</span>
