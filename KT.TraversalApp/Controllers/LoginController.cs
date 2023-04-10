@@ -67,7 +67,7 @@ namespace KT.TraversalApp.Controllers
                 var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, false, true);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Destination");
+                    return RedirectToAction("Index", "Profile", new {area="Member"});
                 }
                 return RedirectToAction("SignIn","Login");
             }

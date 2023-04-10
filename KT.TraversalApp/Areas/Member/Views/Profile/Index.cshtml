@@ -1,0 +1,35 @@
+﻿@using KT.TraversalApp.Areas.Member.Models;
+@model UserEditViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Profile</h1>
+
+<form method="post" class="form-control" enctype="multipart/form-data">
+    @Html.Label("Name")
+    <input type="text" asp-for="Name" class="form-control"/>
+    <br/>
+    @Html.Label("Surname")
+    <input type="text" asp-for="Surname" class="form-control" />
+    <br />
+    @Html.Label("Mail")
+    <input type="text" asp-for="Mail" class="form-control" />
+    <br />
+    @Html.Label("Password")
+    <input type="text" asp-for="Password" class="form-control"/>
+    <br/>
+    @Html.Label("Confirm Password")
+    <input type="text" asp-for="ConfirmPassword" class="form-control" />
+    <br />
+    @Html.Label("Phone Number")
+    <input type="text" asp-for="PhoneNumber" class="form-control" />
+    <br />
+    <div class="form-group">
+        <label>Choose Image</label>
+        <input type="file" asp-for="Image" class="form-control" />
+    </div>
+    <br />
+    <button class="btn btn-primary">Update</button>
+</form>
