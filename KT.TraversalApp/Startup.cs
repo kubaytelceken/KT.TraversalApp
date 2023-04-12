@@ -61,7 +61,8 @@ namespace KT.TraversalApp
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapDefaultControllerRoute();
+                endpoints.MapControllerRoute(
+                    name:"default",pattern:"{controller=Login}/{action=SignIn}");
             });
 
             app.UseEndpoints(endpoints =>

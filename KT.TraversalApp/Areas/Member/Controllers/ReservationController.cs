@@ -1,10 +1,12 @@
 ﻿using KT.Traversal.Business.Concrete;
 using KT.Traversal.DataAccessLayer.EntityFramework;
 using KT.Traversal.Entity.Concrete;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace KT.TraversalApp.Areas.Member.Controllers
 {
@@ -13,6 +15,14 @@ namespace KT.TraversalApp.Areas.Member.Controllers
     {
         DestinationManager destinationManager = new DestinationManager(new EfDestinationRepository());
         ReservationManager reservationManager = new ReservationManager(new EfReservationRepository());
+
+        private readonly UserManager<AppUser> _userManager;
+
+        public ReservationController(UserManager<AppUser> userManager)
+        {
+            _userManager = userManager;
+        }
+
         public IActionResult MyCurrentReservation()
         {
             return View();
@@ -20,6 +30,12 @@ namespace KT.TraversalApp.Areas.Member.Controllers
         public IActionResult MyOldReservation()
         {
             return View();
+        }
+        public async Task<IActionResult> MyApprovalReservation()
+        {
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            var approvalList = reservationManager.GetListApprovalReservation(user.Id);
+            return View(approvalList);
         }
         [HttpGet]
         public IActionResult NewReservation()
@@ -36,7 +52,8 @@ namespace KT.TraversalApp.Areas.Member.Controllers
         [HttpPost]
         public IActionResult NewReservation(Reservation model)
         {
-            model.AppUserId = 3;
+            model.AppUserId = 1;
+            model.Status = 0;
             reservationManager.TAdd(model); 
             return RedirectToAction("MyCurrentReservation");
         }

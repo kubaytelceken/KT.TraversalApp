@@ -9,6 +9,8 @@ namespace KT.Traversal.DataAccessLayer.Abstract
 {
     public interface IReservationRepository : IGenericRepository<Reservation>
     {
-
+        List<Reservation> GetListWithReservationByWaitApproval(int id);
+        List<Reservation> GetListWithReservationByApprove(int id);
+        List<Reservation> GetListWithReservationByPrevious(int id);
     }
 }
