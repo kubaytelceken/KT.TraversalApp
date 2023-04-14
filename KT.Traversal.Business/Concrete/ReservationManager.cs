@@ -19,14 +19,26 @@ namespace KT.Traversal.Business.Concrete
             _repository = repository;
         }
 
-        public List<Reservation> GetListApprovalReservation(int id)
-        {
-            return _repository.GetListByFilter(x=>x.AppUserId== id && x.Status == 0);
-        }
+       
 
         public List<Reservation> GetListByFilter(Expression<Func<Reservation, bool>> filter)
         {
             throw new NotImplementedException();
+        }
+
+        public List<Reservation> GetListWithReservationByApprove(int id)
+        {
+            return _repository.GetListWithReservationByApprove(id);
+        }
+
+        public List<Reservation> GetListWithReservationByPrevious(int id)
+        {
+            return _repository.GetListWithReservationByPrevious(id);
+        }
+
+        public List<Reservation> GetListWithReservationByWaitApproval(int id)
+        {
+            return _repository.GetListWithReservationByWaitApproval(id);
         }
 
         public void TAdd(Reservation entity)

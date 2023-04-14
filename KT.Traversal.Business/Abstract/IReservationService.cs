@@ -9,6 +9,8 @@ namespace KT.Traversal.Business.Abstract
 {
     public interface IReservationService : IGenericService<Reservation>
     {
-        List<Reservation> GetListApprovalReservation(int id);
+        List<Reservation> GetListWithReservationByWaitApproval(int id);
+        List<Reservation> GetListWithReservationByApprove(int id);
+        List<Reservation> GetListWithReservationByPrevious(int id);
     }
 }

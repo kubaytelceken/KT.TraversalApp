@@ -23,18 +23,22 @@ namespace KT.TraversalApp.Areas.Member.Controllers
             _userManager = userManager;
         }
 
-        public IActionResult MyCurrentReservation()
+        public async Task<IActionResult> MyCurrentReservation()
         {
-            return View();
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            var approvalList = reservationManager.GetListWithReservationByApprove(user.Id);
+            return View(approvalList);
         }
-        public IActionResult MyOldReservation()
+        public async Task<IActionResult> MyOldReservation()
         {
-            return View();
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            var approvalList = reservationManager.GetListWithReservationByPrevious(user.Id);
+            return View(approvalList);
         }
         public async Task<IActionResult> MyApprovalReservation()
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
-            var approvalList = reservationManager.GetListApprovalReservation(user.Id);
+            var approvalList = reservationManager.GetListWithReservationByWaitApproval(user.Id);
             return View(approvalList);
         }
         [HttpGet]

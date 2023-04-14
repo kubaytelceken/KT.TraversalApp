@@ -10,7 +10,7 @@ namespace KT.TraversalApp.Areas.Member.Models
         public string ConfirmPassword { get; set; }
         public string Mail { get; set; }
         public string PhoneNumber { get; set; }
-        public string ImageUrl { get; set; }
+        public string ImageURL { get; set; }
         public IFormFile Image { get; set; }
     }
 }

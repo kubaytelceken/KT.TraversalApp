@@ -6,23 +6,31 @@
 
 <h1>Approval Reservations</h1>
 
-<table class="table table-bordered">
-    <tr>
-        <th>#</th>
-      @*  <th>Location</th>*@
-        <th>Person Count</th>
-        <th>Reservation Date</th>
-        <th>Status</th>
-    </tr>
-    @foreach (var item in Model)
-    {
+@if(@Model.Count>0){
+    <table class="table table-bordered">
         <tr>
-            <td>@item.Id</td>
-           @* <td>@item.Destination</td>*@
-            <td>@item.PersonCount</td>
-            <td>@item.ReservationDate</td>
-            <td>@item.StatuStr</td>
-           
+            <th>#</th>
+            <th>Location</th>
+            <th>Person Count</th>
+            <th>Reservation Date</th>
+            <th>Status</th>
         </tr>
-    }
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Destination.City</td>
+                <td>@item.PersonCount</td>
+                <td>@item.ReservationDate</td>
+                <td>@item.StatuStr</td>
+
+            </tr>
+        }
+    </table>
+}
+else{
+    <h1>No reservations were found</h1>
+}
+
+
+
