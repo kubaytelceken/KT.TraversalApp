@@ -12,33 +12,41 @@
         @Html.Label("City");
         <input type="text" asp-for="City" class="form-control" />
     </div>
+    <br/>
     <div class="form-group">
         @Html.Label("Day Night");
         <input type="text" asp-for="DayNight" class="form-control" />
     </div>
+    <br />
     <div class="form-group">
         @Html.Label("Price");
         <input type="text" asp-for="Price" class="form-control" />
     </div>
+    <br />
     <div class="form-group">
         @Html.Label("Main Image");
         <input type="text" asp-for="Image" class="form-control" />
     </div>
+    <br />
     <div class="form-group">
         @Html.Label("Capacity");
         <input type="text" asp-for="Capacity" class="form-control" />
     </div>
+    <br />
     <div class="form-group">
-        @Html.Label("Detail Image");
-        <input type="text" asp-for="Image2" class="form-control" />
+        @Html.Label("Cover Image");
+        <input type="text" asp-for="CoverImage" class="form-control" />
     </div>
+    <br />
     <div class="form-group">
         @Html.Label("Details-1");
       <textarea cols="30" rows="5" class="form-control" asp-for="Details1"></textarea>
     </div>
+    <br />
     <div class="form-group">
         @Html.Label("Details-2");
-        <textarea cols="30" rows="5" class="form-control" asp-for="Details1"></textarea>
+        <textarea cols="30" rows="5" class="form-control" asp-for="Details2"></textarea>
     </div>
+    <br />
     <button class="btn btn-outline-success">Create Destination</button>
 </form>
