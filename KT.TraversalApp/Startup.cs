@@ -1,4 +1,8 @@
+using KT.Traversal.Business.Abstract;
+using KT.Traversal.Business.Concrete;
+using KT.Traversal.DataAccessLayer.Abstract;
 using KT.Traversal.DataAccessLayer.Concrete;
+using KT.Traversal.DataAccessLayer.EntityFramework;
 using KT.Traversal.Entity.Concrete;
 using KT.TraversalApp.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -29,6 +33,20 @@ namespace KT.TraversalApp
         {
             services.AddDbContext<Context>();
             services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>();
+
+            //Comment Scoped
+            services.AddScoped<ICommentService, CommentManager>();
+            services.AddScoped<ICommentRepository, EfCommentRepository>();
+            //Destination Scoped
+            services.AddScoped<IDestinationService, DestinationManager>();
+            services.AddScoped<IDestinationRepository, EfDestinationRepository>();
+            //AppUser Scoped
+            services.AddScoped<IAppUserService, AppUserManager>();
+            services.AddScoped<IAppUserRepository, EfAppUserRepository>();
+
+
+
+
             services.AddControllersWithViews();
 
 

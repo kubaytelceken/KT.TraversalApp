@@ -53,5 +53,10 @@ namespace KT.Traversal.Business.Concrete
         {
             _repository.Update(entity);
         }
+
+        public List<Comment> TGetListCommentWithDestination()
+        {
+            return _repository.GetListCommentWithDestination();
+        }
     }
 }

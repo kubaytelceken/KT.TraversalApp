@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace KT.Traversal.DataAccessLayer.Abstract
 {
-    public interface ICommentRepository : IGenericRepository<Comment>
+    public interface IAppUserRepository : IGenericRepository<AppUser>
     {
-        public List<Comment> GetListCommentWithDestination();
     }
 }
