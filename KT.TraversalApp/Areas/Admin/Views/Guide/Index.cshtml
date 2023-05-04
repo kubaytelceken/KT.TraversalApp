@@ -1,0 +1,50 @@
+﻿@model List<Guide>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+
+<style>
+    img{
+        border-radius:50%;
+    }
+</style>
+
+<h1>Guide List</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Image</th>
+        <th>Guide</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td><img src="@item.Image" height="50" width="50"/></td>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+            @if (item.Status == true)
+            {
+                <td><a href="#" class="btn btn-outline-secondary">Deactive</a></td>
+            }
+            else
+            {
+                <td><a href="#" class="btn btn-outline-info">Set Active</a></td>
+            }
+           
+            <td><a href="#" class="btn btn-outline-warning btn-sm">Edit</a></td>
+        </tr>
+    }
+</table>
+
+<a href="/Admin/Guide/AddGuide" class="btn btn-outline-primary btn-sm">Create Guide</a>
+

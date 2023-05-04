@@ -26,7 +26,7 @@ namespace KT.Traversal.Business.Concrete
 
         public void TAdd(Guide entity)
         {
-            throw new NotImplementedException();
+            _repository.Insert(entity);
         }
 
         public void TDelete(Guide entity)
@@ -36,7 +36,7 @@ namespace KT.Traversal.Business.Concrete
 
         public Guide TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _repository.GetById(id);
         }
 
         public List<Guide> TGetList()
@@ -46,7 +46,7 @@ namespace KT.Traversal.Business.Concrete
 
         public void TUpdate(Guide entity)
         {
-            throw new NotImplementedException();
+            _repository.Update(entity);
         }
     }
 }
