@@ -9,5 +9,7 @@ namespace KT.Traversal.DataAccessLayer.Abstract
 {
     public interface IGuideRepository : IGenericRepository<Guide>
     {
+        void ChangeToTrueGuide(int id);
+        void ChangeToFalseGuide(int id);
     }
 }

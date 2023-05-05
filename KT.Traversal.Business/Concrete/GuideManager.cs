@@ -29,6 +29,16 @@ namespace KT.Traversal.Business.Concrete
             _repository.Insert(entity);
         }
 
+        public void TChangeToFalseGuide(int id)
+        {
+            _repository.ChangeToFalseGuide(id);
+        }
+
+        public void TChangeToTrueGuide(int id)
+        {
+           _repository.ChangeToTrueGuide(id);
+        }
+
         public void TDelete(Guide entity)
         {
             throw new NotImplementedException();

@@ -32,6 +32,10 @@ namespace KT.Traversal.Business.Container
             //Guide Scoped
             services.AddScoped<IGuideService, GuideManager>();
             services.AddScoped<IGuideRepository, EfGuideRepository>();
+
+
+            //Guide Scoped
+            services.AddScoped<IExcelService, ExcelManager>();
         }
     }
 }
